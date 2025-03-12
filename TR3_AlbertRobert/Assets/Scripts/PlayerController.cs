@@ -25,17 +25,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (other.CompareTag("Ground"))
         {
             isGrounded = true;
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (other.CompareTag("Ground"))
+        {
+            isGrounded = true; // Asegura que el jugador esté en el suelo mientras esté en el trigger
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ground"))
         {
             isGrounded = false;
         }
