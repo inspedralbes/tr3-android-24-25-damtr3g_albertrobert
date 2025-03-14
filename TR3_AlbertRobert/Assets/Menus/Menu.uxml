@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Menus/MenuStyleSheet.uss?fileID=7433441132597879392&amp;guid=417cb58bd648aca458125195700b252a&amp;type=3#MenuStyleSheet" />
+    <engine:VisualElement style="flex-grow: 1; margin-bottom: 25px; margin-top: 15px;">
+        <engine:Label text="TÍTOL" class="title" />
+        <engine:Button text="Començar" name="ComencarButton" class="button" style="align-items: stretch; justify-content: flex-start; align-self: center;" />
+        <engine:Button text="Skins" name="SkinsButton" class="button" style="align-self: center;" />
+        <engine:Button text="Sortir" name="TancarJocButton" class="button" style="align-self: center;" />
+    </engine:VisualElement>
+</engine:UXML>
