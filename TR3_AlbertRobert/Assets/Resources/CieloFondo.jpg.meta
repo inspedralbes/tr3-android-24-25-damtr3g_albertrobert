@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CieloFondo_0: -238217107543882693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
