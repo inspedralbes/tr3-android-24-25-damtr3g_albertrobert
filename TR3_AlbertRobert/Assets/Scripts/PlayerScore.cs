@@ -5,7 +5,7 @@ public class PlayerScore : MonoBehaviour
 {
     public UIDocument uiDocument; // Assigna el teu UIDocument des de l'Inspector
     private Label scoreLabel; // Referència al Label "ScorePoints"
-    private int score = 0; // Variable per emmagatzemar la puntuació
+    public int score = 0; // Variable per emmagatzemar la puntuació
 
     void Start()
     {

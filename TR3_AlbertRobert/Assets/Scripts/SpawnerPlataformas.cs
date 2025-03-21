@@ -1,14 +1,48 @@
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class SpawnerPlataformas : MonoBehaviour
 {
-    public GameObject prefab1; // Primer prefab
-    public GameObject prefab2; // Segundo prefab (el que puede aparecer aleatoriamente)
-    public float spawnRate = 2f; // Tiempo entre cada spawn
-    public float minX = -5f, maxX = 5f; // Rango de posiciones en X
-    public float alternativeSpawnChance = 0.2f; // Probabilidad de que aparezca prefab2 (20%)
+    public GameObject prefab1;
+    public GameObject prefab2;
     
+    // Valores por defecto
+    private float spawnRate = 3f;
+    private float minX = -36f;
+    private float maxX = 36f;
+    private float alternativeSpawnChance = 0.2f;
+
     void Start()
+    {
+        StartCoroutine(LoadConfigFromServer());
+    }
+
+    IEnumerator LoadConfigFromServer()
+    {
+        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://localhost:4000/api/config"))
+        {
+            yield return webRequest.SendWebRequest();
+            
+            if (webRequest.result == UnityWebRequest.Result.Success)
+            {
+                ConfigData config = JsonUtility.FromJson<ConfigData>(webRequest.downloadHandler.text);
+                
+                spawnRate = config.spawnRate;
+                minX = config.minX;
+                maxX = config.maxX;
+                alternativeSpawnChance = config.alternativeSpawnChance;
+            }
+            else
+            {
+                Debug.LogError("Error al cargar configuración: " + webRequest.error);
+            }
+        }
+        
+        StartSpawning();
+    }
+
+    void StartSpawning()
     {
         InvokeRepeating("SpawnPrefab", 0f, spawnRate);
     }
@@ -18,5 +52,14 @@ public class SpawnerPlataformas : MonoBehaviour
         Vector3 spawnPosition = new Vector3(Random.Range(minX, maxX), transform.position.y, transform.position.z);
         GameObject prefabToSpawn = Random.value < alternativeSpawnChance ? prefab2 : prefab1;
         Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+    }
+
+    [System.Serializable]
+    private class ConfigData
+    {
+        public float spawnRate;
+        public float minX;
+        public float maxX;
+        public float alternativeSpawnChance;
     }
 }
