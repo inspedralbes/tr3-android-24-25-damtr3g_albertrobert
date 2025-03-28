@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 2132701262}
   - component: {fileID: 2132701269}
   - component: {fileID: 2132701270}
+  - component: {fileID: 2132701271}
   m_Layer: 0
   m_Name: SusProta
   m_TagString: Player
@@ -1171,7 +1172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageUrl: http://localhost:4000/image/heart.png
   spriteRenderer: {fileID: 2132701266}
-  desiredSize: {x: 0.4679538, y: 0.3436757}
+  desiredSize: {x: 1, y: 1}
+  defaultSprite: {fileID: -176363182444611620, guid: 9f941f20d7e65084eaa829fa4c797f07, type: 3}
 --- !u!114 &2132701270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,6 +1188,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1796894993}
   score: 0
+--- !u!114 &2132701271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132701261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3f8bf59bbe0cb4a95df33bdfa9e0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0.05
+  transitionDuration: 0.3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
