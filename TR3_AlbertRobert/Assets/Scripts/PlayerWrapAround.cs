@@ -11,9 +11,11 @@ public class PlayerWrapAround : MonoBehaviour
     private bool isWrapping = false;
     private Vector3 newPosition;
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>(); // ← Añade esta inicialización
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
         CalculateScreenBounds();
@@ -64,12 +66,15 @@ public class PlayerWrapAround : MonoBehaviour
 
     void SmoothTransition()
     {
+        rb.gravityScale = 0; // Desactivar gravedad
+        
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 10f);
         
         // Finalizar transición cuando esté cerca
-        if (Vector3.Distance(transform.position, newPosition) < 0.3f)
+        if (Vector3.Distance(transform.position, newPosition) < 1f)
         {
             isWrapping = false;
+            rb.gravityScale = 2; // Restaurar gravedad original
             spriteRenderer.enabled = true;
         }
     }

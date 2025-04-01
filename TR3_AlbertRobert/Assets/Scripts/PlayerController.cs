@@ -18,6 +18,14 @@ public class PlayerController : MonoBehaviour
     private readonly Uri serverUri = new Uri("ws://localhost:4000/ws");
     private readonly int receiveBufferSize = 1024;
 
+    // Agrega esta clase arriba de PlayerConfig
+    [System.Serializable]
+    private class WebSocketMessage
+    {
+        public string type;
+        public PlayerConfig data;
+    }
+
     [System.Serializable]
     private class PlayerConfig
     {
@@ -73,18 +81,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Modifica el método ProcessReceivedMessage
     void ProcessReceivedMessage(byte[] buffer, int count)
     {
         try
         {
             string json = Encoding.UTF8.GetString(buffer, 0, count);
-            PlayerConfig config = JsonUtility.FromJson<PlayerConfig>(json);
+            WebSocketMessage message = JsonUtility.FromJson<WebSocketMessage>(json);
             
-            if (config != null)
+            if (message != null && message.type == "playerConfig")
             {
                 UnityMainThreadDispatcher.Instance.Enqueue(() => 
                 {
-                    ApplyNewConfiguration(config);
+                    ApplyNewConfiguration(message.data);
                 });
             }
         }
@@ -96,8 +105,10 @@ public class PlayerController : MonoBehaviour
 
     void ApplyNewConfiguration(PlayerConfig config)
     {
-        speed = Mathf.Clamp(config.speed, 1f, 15f);
-        jumpForce = Mathf.Clamp(config.jumpForce, 5f, 25f);
+        Debug.Log(config.speed);
+        Debug.Log(config.jumpForce);
+        speed = Mathf.Clamp(config.speed, 3f, 100f);
+        jumpForce = Mathf.Clamp(config.jumpForce, 5f, 1000f);
         Debug.Log($"Configuración actualizada: Velocidad={speed} | Salto={jumpForce}");
     }
 
