@@ -20,7 +20,7 @@ public class SpawnerPlataformas : MonoBehaviour
 
     IEnumerator LoadConfigFromServer()
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://localhost:4000/api/config"))
+        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://localhost:4000/config/config"))
         {
             yield return webRequest.SendWebRequest();
             

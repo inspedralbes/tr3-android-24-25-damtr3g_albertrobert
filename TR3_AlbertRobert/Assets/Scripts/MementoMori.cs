@@ -47,7 +47,7 @@ public class MementoMori : MonoBehaviour
         string json = JsonUtility.ToJson(scoreData);
         
         // Configurar la petició POST
-        using (UnityWebRequest webRequest = new UnityWebRequest("http://localhost:4000/api/scores", "POST"))
+        using (UnityWebRequest webRequest = new UnityWebRequest("http://localhost:4000/scores/scores", "POST"))
         {
             byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
             webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);

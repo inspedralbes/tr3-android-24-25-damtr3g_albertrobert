@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private ClientWebSocket websocket;
     private CancellationTokenSource cts;
-    private readonly Uri serverUri = new Uri("ws://localhost:4000/ws");
+    private readonly Uri serverUri = new Uri("ws://localhost:4005/ws");
     private readonly int receiveBufferSize = 1024;
 
     // Agrega esta clase arriba de PlayerConfig
