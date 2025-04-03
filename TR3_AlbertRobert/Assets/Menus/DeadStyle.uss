@@ -13,5 +13,5 @@ VisualElement {
     color: rgb(255, 255, 255);
     transition-duration: 2s, 0s;
     transition-timing-function: ease-out, ease;
-    font-size: 150%;
+    font-size: 100%;
 }

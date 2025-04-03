@@ -1,7 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Menus/DeadStyle.uss?fileID=7433441132597879392&amp;guid=415a9fba437bdf34b9d34701d19869a7&amp;type=3#DeadStyle" />
     <engine:VisualElement style="flex-grow: 1; background-color: rgba(125, 0, 0, 0.68);">
-        <engine:Label text="Game Over" style="align-items: auto; align-self: center; font-size: 175%; margin-bottom: 15%;" />
+        <engine:Label text="Game Over" style="align-items: auto; align-self: center; font-size: 99%; margin-bottom: 15%;" />
         <engine:Button text="Tornar a intentar" name="tryAgain" class="button" />
         <engine:Button text="Sortir de la Partida" name="sortir" class="button" />
     </engine:VisualElement>

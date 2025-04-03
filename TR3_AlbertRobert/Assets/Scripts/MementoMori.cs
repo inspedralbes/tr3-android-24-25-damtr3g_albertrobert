@@ -10,6 +10,7 @@ public class MementoMori : MonoBehaviour
 
     // Variable per emmagatzemar la puntuació (ajusta com obtinguis el valor real)
     private int currentScore; 
+    private GameTimer gameTimer;
 
     void Start()
     {
@@ -29,6 +30,9 @@ public class MementoMori : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
+            // Busca el script PlayerScore en el jugador (asumiendo que está en el mismo GameObject)
+            gameTimer = GameObject.FindGameObjectWithTag("Time").GetComponent<GameTimer>();
+            gameTimer.isGameRunning = false;
             Time.timeScale = 0;
             // Obtenir la puntuació actual (ajusta segons la teva implementació)
             currentScore = FindFirstObjectByType<PlayerScore>().score;

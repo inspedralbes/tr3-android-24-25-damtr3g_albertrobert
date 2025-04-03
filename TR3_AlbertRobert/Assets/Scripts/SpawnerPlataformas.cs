@@ -9,8 +9,8 @@ public class SpawnerPlataformas : MonoBehaviour
     
     // Valores por defecto
     private float spawnRate = 3f;
-    private float minX = -36f;
-    private float maxX = 36f;
+    private float minX = -43f;
+    private float maxX = 43f;
     private float alternativeSpawnChance = 0.2f;
 
     void Start()

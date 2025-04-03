@@ -11,6 +11,6 @@ public class IniciPlataform : MonoBehaviour
 
     void DestroyThisComponent()
     {
-        Destroy(this); // Elimina este componente del GameObject
+        Destroy(gameObject); // Elimina este componente del GameObject
     }
 }
