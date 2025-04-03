@@ -5,7 +5,7 @@ using System.Collections;
 
 public class SkinLoader : MonoBehaviour
 {
-    public string imageUrl = "http://localhost:4000/images/image/AmongUs.jpg"; // Nueva estructura de URL
+    public string imageUrl = "http://localhost:4000/images/a/heart.png"; // Nueva estructura de URL
     public SpriteRenderer spriteRenderer; // Referencia al SpriteRenderer del personaje
     public Vector2 desiredSize = new Vector2(1f, 1f); // Tamaño deseado del sprite
     public Sprite defaultSprite; // Sprite por defecto desde el inspector
