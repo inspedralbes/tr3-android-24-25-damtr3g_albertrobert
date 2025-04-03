@@ -1,0 +1,22 @@
+VisualElement {
+}
+
+.button {
+    align-self: center;
+    width: 20%;
+    margin-bottom: 5%;
+    -unity-text-align: upper-center;
+    -unity-background-image-tint-color: rgb(0, 183, 255);
+    background-image: resource('CieloFondo');
+    font-size: 200%;
+    -unity-font-style: normal;
+    cursor: resource('AmongUs');
+}
+
+.title {
+    -unity-text-align: upper-center;
+    -unity-font-style: normal;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    font-size: 450%;
+}

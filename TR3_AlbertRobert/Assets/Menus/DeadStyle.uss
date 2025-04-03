@@ -1,0 +1,17 @@
+VisualElement {
+}
+
+.button {
+    align-items: auto;
+    align-self: center;
+    margin-bottom: 10%;
+    width: 20%;
+    height: 5%;
+    background-color: rgba(209, 33, 33, 0);
+    background-image: resource('Fondo');
+    -unity-background-image-tint-color: rgb(137, 25, 29);
+    color: rgb(255, 255, 255);
+    transition-duration: 2s, 0s;
+    transition-timing-function: ease-out, ease;
+    font-size: 100%;
+}
